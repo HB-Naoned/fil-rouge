@@ -1,5 +1,7 @@
-import "./assets/css/bootstrap-5.0.2-dist/css/bootstrap.css";
-import "./assets/css/bootstrap-5.0.2-dist/js/bootstrap.js";
+// import "./assets/css/bootstrap-5.0.2-dist/css/bootstrap.min.css";
+// import "./assets/css/bootstrap-5.0.2-dist/js/bootstrapmin.min.js";
+// import Popper from '@popperjs/core';
+// import "./assets/css/bootstrap-5.0.2-dist/js/bundle.min.js";
 import "./assets/css/global.css"
 
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
@@ -19,10 +21,10 @@ function App() {
                             <div className="collapse navbar-collapse">
                                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li className="nav-item">
-                                        <Link className="nav-link active" to="/">Page Accueil</Link>
+                                        <Link className="nav-link active" to="/fil-rouge/">Page Accueil</Link>
                                     </li>
                                     <li className="nav-item">
-                                        <Link className="nav-link active" to="/generation">Page Pokedex</Link>
+                                        <Link className="nav-link active" to="/fil-rouge/generation">Page Pokedex</Link>
                                     </li>
                                 </ul>
                             </div>
@@ -30,9 +32,9 @@ function App() {
                     </nav>
                 </header>
                 <Routes>
-                    <Route path="/" element={<Accueil/>}/>
-                    <Route path="/generation" element={<Pokedex/>}/>
-                    <Route path="/pokemonDetail" element={<PokemonDetail/>}/>
+                    <Route path="/fil-rouge/" element={<Accueil/>}/>
+                    <Route path="/fil-rouge/generation" element={<Pokedex/>}/>
+                    <Route path="/fil-rouge/pokemonDetail" element={<PokemonDetail/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

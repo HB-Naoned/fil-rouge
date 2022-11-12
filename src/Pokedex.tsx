@@ -14,7 +14,7 @@ const Pokedex: React.FC = () => {
     
     const pokemonDetail = function(pokemonSelected :PokemonPokedex){
         console.log(pokemonSelected);
-        navigation("/pokemonDetail",{ state: {pokemonSelected}});
+        navigation("/fil-rouge/pokemonDetail",{ state: {pokemonSelected}});
     }
     
     const getPokemonG = async function(numGeneration: number){
