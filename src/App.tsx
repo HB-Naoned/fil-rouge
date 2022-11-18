@@ -1,7 +1,3 @@
-// import "./assets/css/bootstrap-5.0.2-dist/css/bootstrap.min.css";
-// import "./assets/css/bootstrap-5.0.2-dist/js/bootstrapmin.min.js";
-// import Popper from '@popperjs/core';
-// import "./assets/css/bootstrap-5.0.2-dist/js/bundle.min.js";
 import "./assets/css/global.css"
 
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
