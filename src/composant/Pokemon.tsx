@@ -1,4 +1,4 @@
-import {PokemonPokedex} from './../interface/interface';
+import {PokemonPokedex} from '../interface/interfacePoke';
 // import {IdPokemon} from './../interface/interface';
 import {useNavigate} from "react-router-dom";
 import { useEffect, useState } from 'react';

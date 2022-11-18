@@ -10,7 +10,7 @@ button:hover{
     background-color: rgb(178, 158, 158) !important;
 }
 
-img:hover{
+.imgClickable:hover{
     background-color: rgb(90, 82, 95) !important;
 }
 

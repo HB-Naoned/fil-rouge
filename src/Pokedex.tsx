@@ -1,30 +1,29 @@
-import {useEffect, useState} from 'react';
-import { useNavigate } from 'react-router-dom';
-import {PokemonPokedex} from './interface/interface';
+import {useState} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {Pokemon} from './interface/interfacePoke';
 
 const Pokedex: React.FC = () => {
 
-    const [allPokemon,setAllPokemonG] = useState<PokemonPokedex[] | null>(null); 
+    const [allPokemon,setAllPokemonG] = useState<Pokemon[] | null>(null); 
     const limite: number[] = [0,151,251,386,493,649,721,809,905];
-    const generation: number[] = [1,2,3,4,5,6,7];
+    // const generation: number[] = [1,2,3,4,5,6,7];
     const [loading,setLoading] = useState<boolean>();
-
     const navigation = useNavigate();
-    // const [idPokemon,setIdPokemon] = useState<string | null>(null); 
-    
-    const pokemonDetail = function(pokemonSelected :PokemonPokedex){
+
+    const pokemonDetail = function(pokemonSelected :Pokemon){
         console.log(pokemonSelected);
-        navigation("/fil-rouge/pokemonDetail",{ state: {pokemonSelected}});
+        navigation("/fil-rouge/pokemonDetail",{ state: {poke : pokemonSelected}});
     }
     
     const getPokemonG = async function(numGeneration: number){
         setLoading(false);
         let startG = limite[numGeneration];
         let endG = limite[numGeneration + 1];
-        let pokemonG  : PokemonPokedex[] = [];
+        let pokemonG  : Pokemon[] = [];
         for(startG++ ; startG<=endG ; startG++){
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${startG}/`);
-            let obj: PokemonPokedex = await response.json();
+            let obj: Pokemon = await response.json();
+            console.log(obj);
             pokemonG.push(obj);
         }
         setAllPokemonG(pokemonG);
@@ -68,9 +67,8 @@ const Pokedex: React.FC = () => {
                     <div className="row mt-3">
                         {allPokemon && allPokemon.map(pokemon => (
                             <div key={pokemon.id} className="col-3 d-flex flex-wrap justify-content-center mt-2">
-                                <img className="img-thumbnail bg-dark" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`} alt={`${pokemon.id}`} onClick={() => pokemonDetail(pokemon)}/>
-                                <h4>{pokemon.name} n°{pokemon.id}</h4>
-                                {/* <button type="button" className="btn btn-dark border border-dark mt-2" onClick={() => pokemonDetail(pokemon.pokemon_species.url,pokemon.entry_number)}>Détails de {pokemon.pokemon_species.name}</button> */}
+                                <img className="img-thumbnail bg-dark imgClickable" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`} alt={`${pokemon.id}`} onClick={() => pokemonDetail(pokemon)}/>
+                                <h4>{pokemon.name} n°{pokemon.id}</h4>                                
                             </div>
                         ))}
                     </div>
