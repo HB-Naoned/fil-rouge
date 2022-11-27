@@ -1,12 +1,11 @@
 import {useState,useEffect} from 'react';
-import { useDispatch } from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {Pokedex} from './interface/interfacePokedex';
 import {PokemonEntry} from './interface/interfacePokedex';
-import { NewFavoris } from './redux/NewFavoris';
-import {Provider} from "react-redux";
-import { useSelector } from 'react-redux';
-import { FavorisState } from './redux/favorisReducer';
-import { addFavori } from './redux/actions';
+import {NewFavoris} from './redux/NewFavoris';
+import {useSelector} from 'react-redux';
+import {FavorisState} from './redux/favorisReducer';
+import {addFavori} from './redux/actions';
 
 const PokemonFav: React.FC = () => {    
 
@@ -47,12 +46,12 @@ const PokemonFav: React.FC = () => {
                 </select>
 
                 <div className='row'>
-                    {/* <button className="col btn btn-dark mt-5 border border-white mx-4" onClick={() => addList()}> */}
-                        {/* Ajouter à la liste */}
-                    {/* </button> */}
-                    {/* <button className="col btn btn-dark mt-5 border border-white mx-4" onClick={() => resetList()}> */}
-                        {/* Reset la liste */}
-                    {/* </button> */}
+                    <button className="col btn btn-dark mt-5 border border-white mx-4">
+                        Ajouter à la liste
+                    </button>
+                    <button className="col btn btn-dark mt-5 border border-white mx-4">
+                        Reset la liste
+                    </button>
                 </div>
             </div>
             
