@@ -6,7 +6,6 @@ const Pokedex: React.FC = () => {
 
     const [allPokemon,setAllPokemonG] = useState<Pokemon[] | null>(null); 
     const limite: number[] = [0,151,251,386,493,649,721,809,905];
-    // const generation: number[] = [1,2,3,4,5,6,7];
     const [loading,setLoading] = useState<boolean>();
     const navigation = useNavigate();
 
