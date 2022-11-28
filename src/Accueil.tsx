@@ -9,7 +9,7 @@ const Accueil: React.FC = () => {
                 <p> <br />
                     Bienvenu ! <br />
                     Vous vous trouvez actuellement dans une page d'entrainement pour un projet fil-rouge pour découvrir React sous format TypeScript. <br />
-                    Cette page contient un exemple d'utilisation de l'API : PokeAPI v2<br /> <br /><br />
+                    Cette page contient un exemple d'utilisation de l'API : PokeAPI v2.<br /> <br /><br />
 
                     Ce site static présent les fonctionnalités suivantes : 
                     <ul className="mt-1">
