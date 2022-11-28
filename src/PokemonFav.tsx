@@ -1,7 +1,6 @@
 import {useDispatch} from 'react-redux';
 import {Favoris} from './redux/Favoris';
 import {useSelector} from 'react-redux';
-import {useState} from 'react';
 import {FavorisState} from './redux/favorisReducer';
 import {addFavori, resetFavori} from './redux/actions';
 
