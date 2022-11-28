@@ -1,11 +1,9 @@
-import {useState,useEffect} from 'react';
 import {useDispatch} from 'react-redux';
-import {Pokedex} from './interface/interfacePokedex';
-import {PokemonEntry} from './interface/interfacePokedex';
-import {NewFavoris} from './redux/NewFavoris';
+import {Favoris} from './redux/Favoris';
 import {useSelector} from 'react-redux';
+import {useState} from 'react';
 import {FavorisState} from './redux/favorisReducer';
-import {addFavori} from './redux/actions';
+import {addFavori, resetFavori} from './redux/actions';
 
 const PokemonFav: React.FC = () => {    
 
@@ -13,7 +11,13 @@ const PokemonFav: React.FC = () => {
     const dispatch = useDispatch();
 
     const onAddList = (fav:string) => {
-        dispatch(addFavori(fav))
+        console.log("onAdd");
+        dispatch(addFavori(fav));
+    }
+
+    const onResetList = (fav:string) => {
+        console.log("onDel");
+        dispatch(resetFavori(fav));
     }
 
     return(
@@ -24,14 +28,20 @@ const PokemonFav: React.FC = () => {
             </div>            
 
             <div className='row mb-5'>
-                <NewFavoris addFavori={onAddList}/>
+                <Favoris addFavori={onAddList} delFavori={onResetList}/>
             </div> 
 
             <div className='row recadre'>
             {favoris.map((favori) =>{
                     return (
-                        
-                            <h1 key={favori}>{favori}</h1>
+                        <div key={favori} className='col-4 my-5'>
+                            <div className="card bg-dark border border-ligth">
+                                <img className="card-img-top bg-dark" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${favori}.png`} alt="tet"/>
+                                <div className="card-body bg-dark d-flex justify-content-center">
+                                    <p className="card-text">Pokemon n°{favori} du pokédex</p>
+                                </div>
+                            </div>
+                        </div>
                     ) 
                 })}
             </div>

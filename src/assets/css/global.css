@@ -26,3 +26,7 @@ body{
 .recadre{
     margin-top: 20vh;
 }
+
+.card{
+    width: 18rem !important; 
+}
