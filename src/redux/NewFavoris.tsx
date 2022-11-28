@@ -1,15 +1,18 @@
-import React, {ChangeEvent, useState} from "react";
+import React, {ChangeEvent, useState, useEffect} from "react";
+import {PokemonEntry} from '../interface/interfacePokedex';
+import {Pokedex} from '../interface/interfacePokedex';
 
 interface NewFavorisInputProps {
     addFavori(favori: string): void;
 }
 
 
-export const NewFavoris: React.FC<NewFavorisInputProps> = ({addFavori}) => {
+export const NewFavoris: React.FC<NewFavorisInputProps> = ({addFavori},{listOfId}) => {
 
     const [favori, setFavori] = useState("");
+    const [pokedex,setPokedex] = useState<PokemonEntry[] | null>(null); 
 
-    const updateFavoris = (event:ChangeEvent<HTMLInputElement>) => {
+    const updateFavori = (event:ChangeEvent<HTMLSelectElement>) => {
         setFavori(event.target.value);
     }
 
@@ -18,10 +21,35 @@ export const NewFavoris: React.FC<NewFavorisInputProps> = ({addFavori}) => {
         setFavori("");
     }
 
+    const getListPokemon = async () => {
+        const response = await fetch("https://pokeapi.co/api/v2/pokedex/1/");
+        let pokedex: Pokedex = await response.json();
+        console.log(pokedex.pokemon_entries);
+        setPokedex(pokedex.pokemon_entries);
+    }
+
+    useEffect(() => {
+        getListPokemon();
+    },[]);
+
     return(
-        <div className="col">
-            <input onChange={updateFavoris} type="text" value={favori} name="favori" placeholder="Favoris"/>
-            <button onClick={addOnClique}>Add Favoris</button>
+        <div className="">
+
+            <select onChange={updateFavori} className="row form-select bg-dark mt-5 h-75" size={3} aria-label="size 3 select example">
+                {pokedex && pokedex.map(pokemonPokedex => (
+                <option key={pokemonPokedex.entry_number} value={pokemonPokedex.entry_number} >{pokemonPokedex.entry_number} {pokemonPokedex.pokemon_species.name}</option>
+                ))}
+            </select>
+
+            <div className='row d-flex justify-content-center'>
+                <button onClick={addOnClique} className="col-3 btn btn-dark mt-5 border border-white mx-4">
+                    Ajouter à la liste
+                </button>
+                <button className="col-3 btn btn-dark mt-5 border border-white mx-4">
+                    Reset la liste
+                </button>
+            </div>
+
         </div>
     )
 }
