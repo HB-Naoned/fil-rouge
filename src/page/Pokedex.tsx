@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import {Pokemon} from '../interface/interfacePoke';
 
 const Pokedex: React.FC = () => {
@@ -10,17 +10,7 @@ const Pokedex: React.FC = () => {
     const [allPokemon,setAllPokemonG] = useState<Pokemon[] | null>(null); 
     const limite: number[] = [0,151,251,386,493,649,721,809,905];
     const [loading,setLoading] = useState<boolean>();
-    const navigation = useNavigate();
 
-    /**
-     * @description Navigation permettant d'aller à la page de Détail du pokemon sélectionné
-     * @param pokemonSelected 
-     */
-    const pokemonDetail = function(pokemonSelected :Pokemon){
-        console.log(pokemonSelected);
-        navigation("/fil-rouge/pokemonDetail",{ state: {poke : pokemonSelected}});
-    }
-    
 
     /**
      * @description Récupère l'ensemble des pokemons d'un génération en renseignant le numéro de la génération correspondante
@@ -79,8 +69,10 @@ const Pokedex: React.FC = () => {
                     <div className="row mt-3">
                         {allPokemon && allPokemon.map(pokemon => (
                             <div key={pokemon.id} className="col-3 d-flex flex-wrap justify-content-center mt-2">
-                                <img className="img-thumbnail bg-dark imgClickable" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`} alt={`${pokemon.id}`} onClick={() => pokemonDetail(pokemon)}/>
-                                <h4>{pokemon.name} n°{pokemon.id}</h4>                                
+                                <Link className="nav-link active" to={`/fil-rouge/pokemonDetail/${pokemon.id}`}>
+                                    <img className="img-thumbnail bg-dark imgClickable" src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`} alt={`${pokemon.id}`}/>
+                                </Link>
+                                <h4>{pokemon.name} n°{pokemon.id}</h4> 
                             </div>
                         ))}
                     </div>

@@ -34,7 +34,7 @@ function App() {
                 <Routes>
                     <Route path="/fil-rouge/" element={<Accueil/>}/>
                     <Route path="/fil-rouge/generation" element={<Pokedex/>}/>
-                    <Route path="/fil-rouge/pokemonDetail" element={<PokemonDetail/>}/>
+                    <Route path="/fil-rouge/pokemonDetail/:idPokemon" element={<PokemonDetail/>}/>
                     <Route path="/fil-rouge/pokemonFav" element={<PokemonFav/>}/>
                 </Routes>
             </BrowserRouter>
