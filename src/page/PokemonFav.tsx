@@ -9,11 +9,19 @@ const PokemonFav: React.FC = () => {
     const favoris = useSelector<FavorisState, FavorisState["favoris"]>((state) => state.favoris);
     const dispatch = useDispatch();
 
+    /**
+     * @description Appel au reducer pour ajouter le favori dans la liste des favoris
+     * @param fav 
+     */
     const onAddList = (fav:string) => {
         console.log("onAdd");
         dispatch(addFavori(fav));
     }
 
+    /**
+     * @description Appel au reducer pour reset la liste des favoris
+     * @param fav 
+     */
     const onResetList = (fav:string) => {
         console.log("onDel");
         dispatch(resetFavori(fav));

@@ -17,17 +17,26 @@ export const Favoris: React.FC<NewFavorisInputProps> = ({addFavori,delFavori}) =
         setFavori(event.target.value);
     }
 
+    /**
+     * @description Déclancheur de l'action Ajout Favori pour le reducer 
+     */
     const addOnClique = () => {
         console.log("add");
         addFavori(favori);
         setFavori("");
     }
 
+    /**
+     * @description Déclancheur de l'action "Reset Favoris" pour le reducer 
+     */
     const resetOnClique = () => {
         console.log("del");
         delFavori(favori);
     }
 
+    /**
+     * @description Initialisation de la liste de tous les pokemons
+     */
     const getListPokemon = async () => {
         const response = await fetch("https://pokeapi.co/api/v2/pokedex/1/");
         let pokedex: Pokedex = await response.json();
@@ -35,6 +44,9 @@ export const Favoris: React.FC<NewFavorisInputProps> = ({addFavori,delFavori}) =
         setPokedex(pokedex.pokemon_entries);
     }
 
+    /**
+     * @description Appel de la méthode getListPokemon au chargement de la page
+     */
     useEffect(() => {
         getListPokemon();
     },[]);

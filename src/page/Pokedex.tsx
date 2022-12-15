@@ -4,11 +4,18 @@ import {Pokemon} from '../interface/interfacePoke';
 
 const Pokedex: React.FC = () => {
 
+    /**
+     * @desciption allPokemon = Tableau d'objet Pokemon / limite = Tableau de nombre pour décrire les générations / loading = Boolean pour activer ou non le spinner
+     */
     const [allPokemon,setAllPokemonG] = useState<Pokemon[] | null>(null); 
     const limite: number[] = [0,151,251,386,493,649,721,809,905];
     const [loading,setLoading] = useState<boolean>();
     const navigation = useNavigate();
 
+    /**
+     * @description Navigation permettant d'aller à la page de Détail du pokemon sélectionné
+     * @param pokemonSelected 
+     */
     const pokemonDetail = function(pokemonSelected :Pokemon){
         console.log(pokemonSelected);
         navigation("/fil-rouge/pokemonDetail",{ state: {poke : pokemonSelected}});
@@ -16,7 +23,7 @@ const Pokedex: React.FC = () => {
     
 
     /**
-     * 
+     * @description Récupère l'ensemble des pokemons d'un génération en renseignant le numéro de la génération correspondante
      * @param numGeneration 
      */
     const getPokemonG = async function(numGeneration: number){
@@ -67,6 +74,7 @@ const Pokedex: React.FC = () => {
             </div>
 
             <div className="container">
+                {/* Double condition If ternair pour la gestion d'affichage des pokemons, du spinner et des instructions de départ*/}
                 {loading ? 
                     <div className="row mt-3">
                         {allPokemon && allPokemon.map(pokemon => (

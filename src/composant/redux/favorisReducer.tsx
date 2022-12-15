@@ -9,7 +9,12 @@ const initialState = {
 }
 
 
-
+/**
+ * @description Reducer permettant les actions d'ajout de favoris et de reset des favoris
+ * @param state 
+ * @param action 
+ * @returns 
+ */
 export const favorisReducer = (state:FavorisState = initialState, action: Action) => {
     console.log('value de : '+action)
     console.log("icireducer0");

@@ -5,21 +5,30 @@ import {PokemonDetailAnnexe} from '../interface/interfacePokeDetail';
 
 const PokemonDetail: React.FC = () => {    
 
-    const [pokemonDetail,setPokemonDetail] = useState<Pokemon | null>(null); 
-    const [pokemonAnnexe,setPokemonDetailAnnexe] = useState<PokemonDetailAnnexe | null>(null); 
+    /**
+     * @description pokemonDetail = Object Pokemon / pokemonAnnexeDetail = Détails supplémentaire sur le pokemon sélectionné
+     */
+    const [pokemon,setPokemon] = useState<Pokemon | null>(null); 
+    const [pokemonDetail,setPokemonDetail] = useState<PokemonDetailAnnexe | null>(null); 
     const {state} = useLocation();
 
+    /**
+     * @description Charger des détails supplémentaires sur le pokemon selectionné
+     * @param url 
+     */
     const getAnnexeDetail = async (url:string) => {
         const response = await fetch(url);
         let obj: PokemonDetailAnnexe = await response.json();
         console.log(obj);
-        setPokemonDetailAnnexe(obj);
+        setPokemonDetail(obj);
     }
 
-
+    /**
+     * @description Récupération du pokemon sélectionné et appel du chargement des détails annexe du pokemon lors du chargement de la page
+     */
     useEffect(() => {
         const {poke} = state;
-        setPokemonDetail(poke);
+        setPokemon(poke);
         console.log(poke.species.url)
         getAnnexeDetail(poke.species.url)
     },[]);
@@ -30,10 +39,10 @@ const PokemonDetail: React.FC = () => {
                 <div className='col d-flex flex-column'>
                     <div className="row justify-content-between my-2">
                         <div className="col-5 border border-ligth rounded-1">
-                            N° {pokemonDetail?.id}
+                            N° {pokemon?.id}
                         </div>
                         <div className="col-6 border border-ligth rounded-1">
-                            {pokemonDetail?.name}
+                            {pokemon?.name}
                         </div>
                     </div>
                     <div className="row">
@@ -42,13 +51,13 @@ const PokemonDetail: React.FC = () => {
                     <div className='row'>
                         <div className='col'>Nom en Allemand</div>
                         <div className='col'>
-                            <p>{pokemonAnnexe?.names[5].name}</p>
+                            <p>{pokemonDetail?.names[5].name}</p>
                         </div>
                     </div>
                     <div className='row'>
                         <div className='col'>Nom en Japonais</div>
                         <div className='col'>
-                            <p>{pokemonAnnexe?.names[0].name}</p>
+                            <p>{pokemonDetail?.names[0].name}</p>
                         </div>
                     </div>
                 </div>
