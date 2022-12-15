@@ -1,6 +1,6 @@
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {Pokemon} from './interface/interfacePoke';
+import {Pokemon} from '../interface/interfacePoke';
 
 const Pokedex: React.FC = () => {
 
@@ -14,6 +14,11 @@ const Pokedex: React.FC = () => {
         navigation("/fil-rouge/pokemonDetail",{ state: {poke : pokemonSelected}});
     }
     
+
+    /**
+     * 
+     * @param numGeneration 
+     */
     const getPokemonG = async function(numGeneration: number){
         setLoading(false);
         let startG = limite[numGeneration];

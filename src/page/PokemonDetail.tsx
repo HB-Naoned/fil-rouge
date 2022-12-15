@@ -1,7 +1,7 @@
 import {useState,useEffect} from 'react';
 import {useLocation} from 'react-router-dom';
-import {Pokemon} from './interface/interfacePoke';
-import {PokemonDetailAnnexe} from './interface/interfacePokeDetail';
+import {Pokemon} from '../interface/interfacePoke';
+import {PokemonDetailAnnexe} from '../interface/interfacePokeDetail';
 
 const PokemonDetail: React.FC = () => {    
 

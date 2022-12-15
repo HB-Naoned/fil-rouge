@@ -1,4 +1,4 @@
-import "./assets/css/global.css"
+import "./../assets/css/global.css"
 
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom';
 

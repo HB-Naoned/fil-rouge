@@ -1,8 +1,8 @@
 import {useDispatch} from 'react-redux';
-import {Favoris} from './redux/Favoris';
+import {Favoris} from '../composant/redux/Favoris';
 import {useSelector} from 'react-redux';
-import {FavorisState} from './redux/favorisReducer';
-import {addFavori, resetFavori} from './redux/actions';
+import {FavorisState} from '../composant/redux/favorisReducer';
+import {addFavori, resetFavori} from '../composant/redux/actions';
 
 const PokemonFav: React.FC = () => {    
 

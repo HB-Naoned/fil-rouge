@@ -1,6 +1,6 @@
 import React, {ChangeEvent, useState, useEffect} from "react";
-import {PokemonEntry} from '../interface/interfacePokedex';
-import {Pokedex} from '../interface/interfacePokedex';
+import {PokemonEntry} from '../../interface/interfacePokedex';
+import {Pokedex} from '../../interface/interfacePokedex';
 
 interface NewFavorisInputProps {
     addFavori(favori: string): void

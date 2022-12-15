@@ -1,4 +1,4 @@
-import "./assets/css/global.css";
+import "./../assets/css/global.css";
 
 const Accueil: React.FC = () => {    
     
@@ -12,13 +12,13 @@ const Accueil: React.FC = () => {
                     Cette page contient un exemple d'utilisation de l'API : PokeAPI v2.<br /> <br /><br />
 
                     Ce site static présent les fonctionnalités suivantes : 
-                    <ul className="mt-1">
-                        <li>Un router sur l'ensemble des pages ;</li>
-                        <li>Un ensemble de 4 pages : "Accueil", "Pokedex", "DetailPokemon" et "Favoris";</li>
-                        <li>La page DetailPokemon n'est accessible seulement en cliquant sur l'un des pokemons de la page Pokedex</li>
-                        <li>Un système de “bookmarks” à l’aide de Redux sur la page "Favoris" ;</li>
-                    </ul>
-                </p>      
+                </p>   
+                <ul className="mt-1">
+                    <li>Un router sur l'ensemble des pages ;</li>
+                    <li>Un ensemble de 4 pages : "Accueil", "Pokedex", "DetailPokemon" et "Favoris";</li>
+                    <li>La page DetailPokemon n'est accessible seulement en cliquant sur l'un des pokemons de la page Pokedex</li>
+                    <li>Un système de “bookmarks” à l’aide de Redux sur la page "Favoris" ;</li>
+                </ul>   
             </div>
         </div>
           
