@@ -31,7 +31,7 @@ const PokemonFav: React.FC = () => {
         <div className='PokemonFav container'>
                 
             <div className='row mt-5'>
-                <h4 className='col-12 d-flex justify-content-center'>Veuillez sélectionner un pokemon a ajouter dans vos favoris</h4>
+                <h4 className='col-12 d-flex justify-content-center'>Veuillez sélectionner un pokémon à ajouter dans vos favoris</h4>
             </div>            
 
             <div className='row mb-5'>
