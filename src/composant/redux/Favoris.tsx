@@ -1,6 +1,7 @@
-import React, {ChangeEvent, useState, useEffect} from "react";
+import React, {ChangeEvent, useState, useEffect, useContext} from "react";
 import {PokemonEntry} from '../../interface/interfacePokedex';
 import {Pokedex} from '../../interface/interfacePokedex';
+import {LangageContext, LangueCurrentContext} from "../context/LangageContextProviderProps";
 
 interface NewFavorisInputProps {
     addFavori(favori: string): void
@@ -10,8 +11,16 @@ interface NewFavorisInputProps {
 
 export const Favoris: React.FC<NewFavorisInputProps> = ({addFavori,delFavori}) => {
 
+    /**
+     * @description favori = Setter de favori
+     * @description pokedex = Setter du pokedex
+     * @description langageText = récupérer le contenue à utiliser en fonction la langue sléectionné
+     * @description langueOption = récupérer la valeur permettant de changer 
+     */
     const [favori, setFavori] = useState("");
     const [pokedex,setPokedex] = useState<PokemonEntry[] | null>(null); 
+    const langageText = useContext(LangageContext);
+    const langueOption = useContext(LangueCurrentContext);
 
     const updateFavori = (event:ChangeEvent<HTMLSelectElement>) => {
         setFavori(event.target.value);
@@ -62,10 +71,10 @@ export const Favoris: React.FC<NewFavorisInputProps> = ({addFavori,delFavori}) =
 
             <div className='row d-flex justify-content-center'>
                 <button onClick={addOnClique} className="col-3 btn btn-dark mt-5 border border-white mx-4">
-                    Ajouter à la liste
+                    {langueOption?.langue ? langageText.fr.pages.pokemonFav.action1 : langageText.en.pages.pokemonFav.action1}
                 </button>
                 <button onClick={resetOnClique} className="col-3 btn btn-dark mt-5 border border-white mx-4">
-                    Reset la liste
+                    {langueOption?.langue ? langageText.fr.pages.pokemonFav.action2 : langageText.en.pages.pokemonFav.action2}
                 </button>
             </div>
 

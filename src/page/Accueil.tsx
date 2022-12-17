@@ -1,23 +1,32 @@
 import "./../assets/css/global.css";
+import {useContext} from "react";
+import {LangageContext, LangueCurrentContext} from "../composant/context/LangageContextProviderProps";
 
 const Accueil: React.FC = () => {    
-    
+
+    /**
+     * @description langageText = récupérer le contenue à utiliser en fonction la langue sléectionné
+     * @description langueOption = récupérer la valeur permettant de changer 
+     */
+    const langageText = useContext(LangageContext);
+    const langueOption = useContext(LangueCurrentContext);
+
+
     return(
         <div className='Acceuil'>
             <div className="container">
-                <h2 className="mt-5">Page Accueil</h2>
-                <p> <br />
-                    Bienvenu ! <br />
-                    Vous vous trouvez actuellement dans une page d'entrainement pour un projet fil-rouge pour découvrir React sous format TypeScript. <br />
-                    Cette page contient un exemple d'utilisation de l'API : PokeAPI v2.<br /> <br /><br />
+                <h2 className="my-5">{langueOption?.langue? langageText.fr.pages.accueil.titre : langageText.en.pages.accueil.titre}</h2>
+                <p>{langueOption?.langue ? langageText.fr.pages.accueil.texte1 : langageText.en.pages.accueil.texte1}</p>
+                <p>{langueOption?.langue ? langageText.fr.pages.accueil.texte2 : langageText.en.pages.accueil.texte2}</p>
 
-                    Ce site static présent les fonctionnalités suivantes : 
-                </p>   
+                <p>{langueOption?.langue ? langageText.fr.pages.accueil.texte3 : langageText.en.pages.accueil.texte3}</p>   
                 <ul className="mt-1">
-                    <li>Un router sur l'ensemble des pages ;</li>
-                    <li>Un ensemble de 4 pages : "Accueil", "Pokedex", "DetailPokemon" et "Favoris";</li>
-                    <li>La page DetailPokemon n'est accessible seulement en cliquant sur l'un des pokemons de la page Pokedex</li>
-                    <li>Un système de “bookmarks” à l’aide de Redux sur la page "Favoris" ;</li>
+                    <li>{langueOption?.langue ? langageText.fr.pages.accueil.li1 : langageText.en.pages.accueil.li1}</li>
+                    <li>{langueOption?.langue ? langageText.fr.pages.accueil.li2 : langageText.en.pages.accueil.li2}</li>
+                    <li>{langueOption?.langue ? langageText.fr.pages.accueil.li3 : langageText.en.pages.accueil.li3}</li>
+                    <li>{langueOption?.langue ? langageText.fr.pages.accueil.li4 : langageText.en.pages.accueil.li4}</li>
+                    <li>{langueOption?.langue ? langageText.fr.pages.accueil.li5 : langageText.en.pages.accueil.li5}</li>
+                    <li>{langueOption?.langue ? langageText.fr.pages.accueil.li6 : langageText.en.pages.accueil.li6}</li>
                 </ul>   
             </div>
         </div>
