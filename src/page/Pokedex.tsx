@@ -46,25 +46,25 @@ const Pokedex: React.FC = () => {
                         {langueOption?.langue ? langageText.fr.pages.pokedex.g1 : langageText.en.pages.pokedex.g1}
                     </button>
                     <button className="col btn btn-dark mx-2 border border-white" onClick={() => getPokemonG(1)}>
-                        {langueOption?.langue ? langageText.fr.pages.pokedex.g1 : langageText.en.pages.pokedex.g1}
+                        {langueOption?.langue ? langageText.fr.pages.pokedex.g2 : langageText.en.pages.pokedex.g2}
                     </button>
                     <button className="col btn btn-dark mx-2 border border-white" onClick={() => getPokemonG(2)}>
-                        {langueOption?.langue ? langageText.fr.pages.pokedex.g1 : langageText.en.pages.pokedex.g1}
+                        {langueOption?.langue ? langageText.fr.pages.pokedex.g3 : langageText.en.pages.pokedex.g3}
                     </button>
                     <button className="col btn btn-dark mx-2 border border-white" onClick={() => getPokemonG(3)}>
-                        {langueOption?.langue ? langageText.fr.pages.pokedex.g1 : langageText.en.pages.pokedex.g1}
+                        {langueOption?.langue ? langageText.fr.pages.pokedex.g4 : langageText.en.pages.pokedex.g4}
                     </button>
                     <button className="col btn btn-dark mx-2 border border-white" onClick={() => getPokemonG(4)}>
-                        {langueOption?.langue ? langageText.fr.pages.pokedex.g1 : langageText.en.pages.pokedex.g1}
+                        {langueOption?.langue ? langageText.fr.pages.pokedex.g5 : langageText.en.pages.pokedex.g5}
                     </button>
                     <button className="col btn btn-dark mx-2 border border-white" onClick={() => getPokemonG(5)}>
-                        {langueOption?.langue ? langageText.fr.pages.pokedex.g1 : langageText.en.pages.pokedex.g1}
+                        {langueOption?.langue ? langageText.fr.pages.pokedex.g6 : langageText.en.pages.pokedex.g6}
                     </button>
                     <button className="col btn btn-dark mx-2 border border-white" onClick={() => getPokemonG(6)}>
-                        {langueOption?.langue ? langageText.fr.pages.pokedex.g1 : langageText.en.pages.pokedex.g1}
+                        {langueOption?.langue ? langageText.fr.pages.pokedex.g7 : langageText.en.pages.pokedex.g7}
                     </button>
                     <button className="col btn btn-dark mx-2 border border-white" onClick={() => getPokemonG(7)}>
-                        {langueOption?.langue ? langageText.fr.pages.pokedex.g1 : langageText.en.pages.pokedex.g1}
+                        {langueOption?.langue ? langageText.fr.pages.pokedex.g8 : langageText.en.pages.pokedex.g8}
                     </button>
                 </div>
             </div>

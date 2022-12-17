@@ -18,10 +18,10 @@ const Header : React.FC = () => {
                     <Link className="nav-link active" to="/fil-rouge/">{langueOption?.langue ? langageText.fr.header.p1 : langageText.en.header.p1}</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link active" to="/fil-rouge/generation">{langageText.selectedLang ? langageText.fr.header.p2 : langageText.en.header.p2}</Link>
+                    <Link className="nav-link active" to="/fil-rouge/generation">{langueOption?.langue ? langageText.fr.header.p2 : langageText.en.header.p2}</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link active" to="/fil-rouge/pokemonFav">{langageText.selectedLang ? langageText.fr.header.p3 : langageText.en.header.p3}</Link>
+                    <Link className="nav-link active" to="/fil-rouge/pokemonFav">{langueOption?.langue ? langageText.fr.header.p3 : langageText.en.header.p3}</Link>
                 </li>
             </ul>
         </div>
